@@ -1,0 +1,8 @@
+ plot 'torino2.dat' using 2:3 with lines
+
+
+
+gnuplot> set term png             (will produce .png output)
+gnuplot> set output "printme.png" (output to any filename.png you want)
+gnuplot> replot
+gnuplot> set term x11

@@ -1,0 +1,7 @@
+//for shared folder
+sudo mount -t vboxsf lab1es2 Desktop/Windows/
+
+
+
+//to connect
+mongo bigdatadb.polito.it/carsharing --ssl --sslAllowInvalidCertificates -u ictts -p 'Ictts16!' --authenticationDatabase carsharing
