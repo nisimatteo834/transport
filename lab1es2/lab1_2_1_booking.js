@@ -9,7 +9,7 @@ var range = 3600
 var result = db.PermanentBookings.aggregate([
     {
         $match: { // filter here what you want first
-            $or: [ {city: "Torino"}],//{city: "Madrid"}, {city: "New York City"}] ,
+            $or: [ {city: "Madrid"}],//{city: "Madrid"}, {city: "New York City"}] ,
             //init_time: { $gte: startUnixTime, $lte: endUnixTime}
             init_date: { $gte: startDate, $lte: endDate}
         	}

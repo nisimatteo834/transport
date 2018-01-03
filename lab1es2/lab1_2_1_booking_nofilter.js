@@ -9,7 +9,7 @@ var range = 3600
 var result = db.PermanentBookings.aggregate([
     {
         $match: { // filter here what you want first
-            $or: [ {city: "Torino"}],//{city: "Madrid"}, {city: "New York City"}] ,
+            $or: [ {city: "Madrid"}],//{city: "Madrid"}, {city: "New York City"}] ,
             //init_time: { $gte: startUnixTime, $lte: endUnixTime}
             init_date: { $gte: startDate, $lte: endDate}
         	}
@@ -36,16 +36,16 @@ var result = db.PermanentBookings.aggregate([
         
      },
 
-         {
+         //{
 
-          $match: { // filter only actual bookings
+          //$match: { // filter only actual bookings
 
-	         moved: true, // must have moved
+	 //        moved: true, // must have moved
 
      //         duration: {$lte: 180, $gt: 2} // must last than 3h and greater then 2m
-          }
+          //}
 
-      },
+      //},
 {
     $group:
     {

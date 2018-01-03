@@ -9,7 +9,7 @@ var range = 3600
 var result = db.PermanentParkings.aggregate([
     {
         $match: { // filter here what you want first
-            $or: [ {city: "Torino"}],//{city: "Madrid"}, {city: "New York City"}] ,
+            $or: [ {city: "Madrid"}],//{city: "Madrid"}, {city: "New York City"}] ,
             //init_time: { $gte: startUnixTime, $lte: endUnixTime}
             init_date: { $gte: startDate, $lte: endDate}
         	}
@@ -28,11 +28,16 @@ var result = db.PermanentParkings.aggregate([
             init_date:1
         }
         
-     },
-     {
-         $match:{
-             duration:{$gte:2}
-             }
+     },
+
+     {
+
+         $match:{
+
+             duration:{$gte:2}
+
+             }
+
          },
 {
     $group:
@@ -56,5 +61,7 @@ while(result.hasNext()) {
     //print (a)
     var str = (a["_id"]["day"].toString()).concat('-')
     var str2 = str.concat(a["_id"]["hourDay"].toString())
-    print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], a["_id"]["dayU"])
+    print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], a["_id"]["dayU"])
+
+    
 }
