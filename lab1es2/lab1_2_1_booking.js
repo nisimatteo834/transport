@@ -69,9 +69,9 @@ while(result.hasNext()) {
     //print (a)
     var str = (a["_id"]["day"].toString()).concat('-')
     var str2 = str.concat(a["_id"]["hourDay"].toString())
-    //print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], str2)
-    print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], a["_id"]["dayU"])
-
+    //print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], str2)
+    print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], a["_id"]["dayU"])
+
     
     //var hours = date.getHours();
 // Minutes part from the timestamp

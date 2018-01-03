@@ -13,10 +13,22 @@ if __name__=='__main__':
     f=open(bookings,"r")
     booking_lines=f.readlines()
     bookings = {}
+    previous = int(booking_lines[0].split(' ')[1])-1
     y = []
-    for l in booking_lines:        
-        bookings[l.split(' ')[1]] = int(l.split(' ')[0])
+    for l in booking_lines:
+        key = l.split(' ')[1]
+        value = int(l.split(' ')[0])        
+
+        while (int(key) - previous) != 1:
+            bookings[str(previous+1)] = 0
+            y.append(str(0))
+            previous += 1
+            
+        bookings[key] = value
         y.append(l.split(' ')[0])
+        previous = int(key)
+        
+                
     
     f.close()
     
@@ -26,7 +38,7 @@ if __name__=='__main__':
     #%%Bookings not filtered
     
     #Interesting to notice
-    # if we put as a filter that the car has to move we go from a max of 900 cases to less than 20
+    # if we put as a filter that the car has     to move we go from a max of 900 cases to less than 20
     
     bookings_nf = folder + "/torino_nf.dat"
     f=open(bookings_nf,"r")
@@ -34,10 +46,21 @@ if __name__=='__main__':
     y=[]
     bookings_nf = {}
     difference = {}
+    previous = int(booking_lines[0].split(' ')[1])-1
+
     
-    for l in booking_lines:        
-        bookings_nf[l.split(' ')[1]] = int(l.split(' ')[0])
-    
+    for l in booking_lines:
+        key = l.split(' ')[1]
+        value = int(l.split(' ')[0])   
+        while (int(key) - previous) != 1:
+            bookings[str(previous+1)] = 0
+            y.append(str(0))
+            previous += 1
+            
+        bookings[key] = value
+        y.append(l.split(' ')[0])
+        previous = int(key)
+        
     for l in bookings_nf:
         if l  in bookings:
             y.append(bookings_nf.get(l)-bookings.get(l))
@@ -46,9 +69,6 @@ if __name__=='__main__':
             y.append(bookings_nf.get(l))
             difference[l] = bookings_nf.get(l)
             
-            
-    print ('ciao')
-
     pyplot.figure(3)
     pyplot.plot(y)
     pyplot.title('Difference not_Filtered-Filtered')
@@ -59,10 +79,22 @@ if __name__=='__main__':
     parking_lines=f.readlines()
     x=[]
     y=[]
-    for l in parking_lines:
-        x.append(l.split(' ')[1])
-        y.append(l.split(' ')[0])
+    parkings = {}
+    previous = int(parking_lines[0].split(' ')[1])-1
+
     
+    for l in parking_lines:
+        key = l.split(' ')[1]
+        value = int(l.split(' ')[0])   
+        while (int(key) - previous) != 1:
+            parkings[str(previous+1)] = 0
+            y.append(str(0))
+            previous += 1
+            
+        parkings[key] = value
+        y.append(l.split(' ')[0])
+        previous = int(key)
+        
     f.close()
     
     pyplot.figure(2)
