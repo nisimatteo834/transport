@@ -1,4 +1,4 @@
-//System utilization over time: aggregate rentals per hour of the day,
+//System utilization over time: aggregate rentals per hour of the day
 var startDate = new ISODate("2017-09-01T00:00:00")
 var startUnixTime = startDate.getTime() /1000
 var endDate = new ISODate("2017-09-30T23:59:59")
