@@ -56,6 +56,6 @@ while(result.hasNext()) {
     var str = (a["_id"]["day"].toString()).concat('-')
     var str2 = str.concat(a["_id"]["hourDay"].toString())
     //print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"], a["_id"]["dayU"],a["_id"]["duration"],a["_id"]["pt_duration"])
-    print (a["_id"]["pt_duration"])
+    print (a["_id"]["duration"],a["_id"]["pt_duration"])
 
 }
