@@ -1,0 +1,1 @@
+db.getCollection('PermanentBookings').find({city:"Torino"})
