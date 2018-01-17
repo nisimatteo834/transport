@@ -45,7 +45,7 @@ var zones = [[ [ [ [ 7.691863740888242, 45.070489011785504 ], [ 7.69150227748297
 
  for (i = 0; i<zones.length;i++)
  {
-     for (j=0; j<zones.length,j!=i; j++)
+     for (j=0; j<zones.length; j++)
      {
 var result =  db.ictts_enjoy_PermanentBookings.aggregate([
 {$match:{
