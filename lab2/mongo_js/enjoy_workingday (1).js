@@ -27,7 +27,7 @@ var zones = [[ [ [ [ 7.691863740888242, 45.070489011785504 ], [ 7.69150227748297
  {
      for (j=0; j<zones.length; j++)
      {
-var result =  db.ictts_PermanentBookings.aggregate([
+var result =  db.ictts_enjoy_PermanentBookings.aggregate([
      { $project: {
         hour: { $hour: "$init_date" },
         day: { $dayOfWeek: "$init_date" },

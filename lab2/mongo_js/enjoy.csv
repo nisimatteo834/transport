@@ -1,6 +1,6 @@
 MongoDB shell version: 3.2.18
 connecting to: bigdatadb.polito.it/carsharing
-2018-01-13T22:09:48.388+0100 W NETWORK  [thread1] SSL peer certificate validation failed: self signed certificate
+2018-01-13T22:51:46.189+0100 W NETWORK  [thread1] SSL peer certificate validation failed: self signed certificate
 0 , 0 , 1508
 0 , 1 , 848
 0 , 2 , 1753
@@ -38,6 +38,7 @@ connecting to: bigdatadb.polito.it/carsharing
 1 , 11 , 130
 1 , 12 , 124
 1 , 13 , 101
+1 , 14 , 0
 1 , 15 , 26
 1 , 16 , 62
 1 , 17 , 56
@@ -60,6 +61,7 @@ connecting to: bigdatadb.polito.it/carsharing
 2 , 11 , 263
 2 , 12 , 376
 2 , 13 , 177
+2 , 14 , 0
 2 , 15 , 98
 2 , 16 , 86
 2 , 17 , 47
@@ -105,6 +107,7 @@ connecting to: bigdatadb.polito.it/carsharing
 4 , 11 , 238
 4 , 12 , 465
 4 , 13 , 301
+4 , 14 , 0
 4 , 15 , 203
 4 , 16 , 220
 4 , 17 , 120
@@ -127,6 +130,7 @@ connecting to: bigdatadb.polito.it/carsharing
 5 , 11 , 109
 5 , 12 , 270
 5 , 13 , 364
+5 , 14 , 0
 5 , 15 , 213
 5 , 16 , 330
 5 , 17 , 184
@@ -195,6 +199,7 @@ connecting to: bigdatadb.polito.it/carsharing
 8 , 11 , 262
 8 , 12 , 93
 8 , 13 , 62
+8 , 14 , 0
 8 , 15 , 17
 8 , 16 , 47
 8 , 17 , 35
@@ -263,6 +268,7 @@ connecting to: bigdatadb.polito.it/carsharing
 11 , 11 , 156
 11 , 12 , 137
 11 , 13 , 84
+11 , 14 , 0
 11 , 15 , 43
 11 , 16 , 29
 11 , 17 , 14
@@ -285,6 +291,7 @@ connecting to: bigdatadb.polito.it/carsharing
 12 , 11 , 177
 12 , 12 , 331
 12 , 13 , 257
+12 , 14 , 0
 12 , 15 , 94
 12 , 16 , 70
 12 , 17 , 60
@@ -316,13 +323,29 @@ connecting to: bigdatadb.polito.it/carsharing
 13 , 20 , 28
 13 , 21 , 21
 13 , 22 , 84
+14 , 0 , 0
+14 , 1 , 0
+14 , 2 , 0
 14 , 3 , 1
 14 , 4 , 2
 14 , 5 , 2
+14 , 6 , 0
+14 , 7 , 0
+14 , 8 , 0
+14 , 9 , 0
+14 , 10 , 0
+14 , 11 , 0
+14 , 12 , 0
+14 , 13 , 0
+14 , 14 , 0
 14 , 15 , 1
 14 , 16 , 1
 14 , 17 , 1
 14 , 18 , 1
+14 , 19 , 0
+14 , 20 , 0
+14 , 21 , 0
+14 , 22 , 0
 15 , 0 , 150
 15 , 1 , 27
 15 , 2 , 67
@@ -337,6 +360,7 @@ connecting to: bigdatadb.polito.it/carsharing
 15 , 11 , 40
 15 , 12 , 73
 15 , 13 , 105
+15 , 14 , 0
 15 , 15 , 42
 15 , 16 , 151
 15 , 17 , 92
@@ -382,6 +406,7 @@ connecting to: bigdatadb.polito.it/carsharing
 17 , 11 , 14
 17 , 12 , 44
 17 , 13 , 62
+17 , 14 , 0
 17 , 15 , 72
 17 , 16 , 136
 17 , 17 , 112
@@ -404,6 +429,7 @@ connecting to: bigdatadb.polito.it/carsharing
 18 , 11 , 1
 18 , 12 , 14
 18 , 13 , 6
+18 , 14 , 0
 18 , 15 , 31
 18 , 16 , 103
 18 , 17 , 80
@@ -426,6 +452,7 @@ connecting to: bigdatadb.polito.it/carsharing
 19 , 11 , 6
 19 , 12 , 16
 19 , 13 , 19
+19 , 14 , 0
 19 , 15 , 21
 19 , 16 , 22
 19 , 17 , 61
@@ -448,6 +475,7 @@ connecting to: bigdatadb.polito.it/carsharing
 20 , 11 , 27
 20 , 12 , 21
 20 , 13 , 27
+20 , 14 , 0
 20 , 15 , 6
 20 , 16 , 9
 20 , 17 , 19
@@ -470,6 +498,7 @@ connecting to: bigdatadb.polito.it/carsharing
 21 , 11 , 11
 21 , 12 , 28
 21 , 13 , 17
+21 , 14 , 0
 21 , 15 , 30
 21 , 16 , 35
 21 , 17 , 55
@@ -492,6 +521,7 @@ connecting to: bigdatadb.polito.it/carsharing
 22 , 11 , 168
 22 , 12 , 63
 22 , 13 , 75
+22 , 14 , 0
 22 , 15 , 25
 22 , 16 , 22
 22 , 17 , 25
