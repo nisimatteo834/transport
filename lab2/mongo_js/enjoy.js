@@ -69,11 +69,7 @@ var result =  db.ictts_enjoy_PermanentBookings.aggregate([
     $count:"tot"
 }])
 
-while(result.hasNext())
-{
-    a = result.next()
-    print (i,",",j,",",a["tot"])
-}
+if(result.hasNext()){    a = result.next()    print (i,",",j,",",a["tot"])}else {	print (i,",",j,",",0) }
  }
 
 }
