@@ -18,19 +18,13 @@ for (i=0; i<cities.length; i++){
     {
         $match: { // filter here what you want first
             city: c,
-            init_time: { $gte: startUnixTime+add_time, $lte: endUnixTime+add_time}
-            //init_date: { $gte: startDate, $lte: endDate}
+			init_time: { $gte: startUnixTime+add_time, $lte: endUnixTime+add_time}
         	}
     },
         {
         $project: { // extract position, time, duration
             _id: 0,
             city: 1,
-            moved: { $ne: [
-                {$arrayElemAt: [ "$origin_destination.coordinates", 0]},
-                {$arrayElemAt: [ "$origin_destination.coordinates", 1]}
-                ]
-            },
             duration: { $divide: [ { $subtract: ["$final_time", "$init_time"] }, 60 ] },
             hourDay: {$hour: "$init_date"},
             monthDay: {$concat: [{$substr: [{$month: "$init_date"},0,2]},"-",{$substr: [{$dayOfMonth: "$init_date"},0,2]}]},
@@ -43,29 +37,25 @@ for (i=0; i<cities.length; i++){
         
      },
 
-        {
+     {
 
-         $match: { // filter only actual bookings
+         $match:{
 
-             moved: true, // must have moved
+             duration:{$gte:2}
 
-             duration: {$lte: 180, $gt: 2} // must last than 3h and greater then 2m
+             }
 
-         }
-
-     },
+         },
 {
     $group:
     {
-        _id:{monthDay : "$monthDay", day:"$day", hourDay: "$hourDay", city:"$city",dayU:"$dayU"},
-        //_id: {city:"$city", day: "$dayU"},
+        _id:{hourDay: "$hourDay", city:"$city"},
         total_parking: {$sum: 1}
     }
 },
 {
    $sort:{
-         //"_id.city":-1,"_id.monthDay":1,"_id.day":1,"_id.hourDay":1
-       "_id.day":1,
+       "_id.city":1,
        "_id.hourDay":1
         }
     }
@@ -73,13 +63,14 @@ for (i=0; i<cities.length; i++){
         
 while(result.hasNext()) {
     a = result.next()
-    var str = (a["_id"]["day"].toString()).concat('-')
-    var str2 = str.concat(a["_id"]["hourDay"].toString())
-		if (a["_id"]["city"] == "New York City")
+	if (a["_id"]["city"] == "New York City")
 	{
-		    print ("NYC",a["total_parking"], a["_id"]["dayU"])
-
+		    print ("NYC", a["_id"]["hourDay"], a["total_parking"])
 	}
-	else{
-print (a["_id"]["city"],a["total_parking"], a["_id"]["dayU"])}}
+		
+	else 
+    {
+		print (a["_id"]["city"],a["_id"]["hourDay"],a["total_parking"])
+	}
+}
 }

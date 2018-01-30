@@ -18,8 +18,7 @@ for (i=0; i<cities.length; i++){
     {
         $match: { // filter here what you want first
             city: c,
-            init_time: { $gte: startUnixTime+add_time, $lte: endUnixTime+add_time}
-            //init_date: { $gte: startDate, $lte: endDate}
+			init_time: { $gte: startUnixTime+add_time, $lte: endUnixTime+add_time}
         	}
     },
         {
@@ -32,6 +31,7 @@ for (i=0; i<cities.length; i++){
                 ]
             },
             duration: { $divide: [ { $subtract: ["$final_time", "$init_time"] }, 60 ] },
+            //dayofWeek: {$dayOfWeek: "$init_date"},
             hourDay: {$hour: "$init_date"},
             monthDay: {$concat: [{$substr: [{$month: "$init_date"},0,2]},"-",{$substr: [{$dayOfMonth: "$init_date"},0,2]}]},
             dayU: {$floor: {$divide: ["$init_time", range]}},
@@ -57,15 +57,12 @@ for (i=0; i<cities.length; i++){
 {
     $group:
     {
-        _id:{monthDay : "$monthDay", day:"$day", hourDay: "$hourDay", city:"$city",dayU:"$dayU"},
-        //_id: {city:"$city", day: "$dayU"},
+        _id:{hourDay: "$hourDay", city:"$city"},
         total_parking: {$sum: 1}
     }
 },
 {
    $sort:{
-         //"_id.city":-1,"_id.monthDay":1,"_id.day":1,"_id.hourDay":1
-       "_id.day":1,
        "_id.hourDay":1
         }
     }
@@ -73,13 +70,14 @@ for (i=0; i<cities.length; i++){
         
 while(result.hasNext()) {
     a = result.next()
-    var str = (a["_id"]["day"].toString()).concat('-')
-    var str2 = str.concat(a["_id"]["hourDay"].toString())
-		if (a["_id"]["city"] == "New York City")
+	if (a["_id"]["city"] == "New York City")
 	{
-		    print ("NYC",a["total_parking"], a["_id"]["dayU"])
-
+		    print ("NYC", a["_id"]["hourDay"], a["total_parking"])
 	}
-	else{
-print (a["_id"]["city"],a["total_parking"], a["_id"]["dayU"])}}
+		
+	else 
+    {
+		print (a["_id"]["city"],a["_id"]["hourDay"],a["total_parking"])
+	}
+}
 }

@@ -3,15 +3,22 @@ var startDate = new ISODate("2017-09-01T00:00:00")
 var startUnixTime = startDate.getTime() /1000
 var endDate = new ISODate("2017-09-30T23:59:59")
 var endUnixTime = endDate.getTime() / 1000
+var cities = ["Torino","Madrid","New York City"]
+
+var time=[-2,-2,4]
 
 
 var range = 3600
-var result = db.PermanentBookings.aggregate([
+
+for (i=0; i<cities.length; i++){
+	c = cities[i]
+	w = time[i]
+	add_time = w*60*60
+	var result = db.PermanentBookings.aggregate([
     {
         $match: { // filter here what you want first
-            $or: [ {city: "Madrid"}],//{city: "Madrid"}, {city: "New York City"}] ,
-            //init_time: { $gte: startUnixTime, $lte: endUnixTime}
-            init_date: { $gte: startDate, $lte: endDate}
+            city: c,
+            init_time: { $gte: startUnixTime+add_time, $lte: endUnixTime+add_time}
         	}
     },
         {
@@ -36,16 +43,6 @@ var result = db.PermanentBookings.aggregate([
         
      },
 
-         //{
-
-          //$match: { // filter only actual bookings
-
-	 //        moved: true, // must have moved
-
-     //         duration: {$lte: 180, $gt: 2} // must last than 3h and greater then 2m
-          //}
-
-      //},
 {
     $group:
     {
@@ -65,12 +62,17 @@ var result = db.PermanentBookings.aggregate([
         
 while(result.hasNext()) {
     a = result.next()
-    //print (a)
     var str = (a["_id"]["day"].toString()).concat('-')
     var str2 = str.concat(a["_id"]["hourDay"].toString())
-    //print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], str2)
-    print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"],a["total_parking"], a["_id"]["dayU"])
+	if (a["_id"]["city"] == "New York City")
+	{
+		    print ("NYC",a["total_parking"], a["_id"]["dayU"])
+
+	}
+		
+	else 
+    {print (a["_id"]["city"],a["total_parking"], a["_id"]["dayU"])}
 
 
-
+}
 }
