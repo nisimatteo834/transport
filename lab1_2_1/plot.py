@@ -148,19 +148,20 @@ if __name__ == '__main__':
 
         pyplot.show()
 
-    percentage = {}
-    x = np.linspace(1, 30, 720)
-    fig = pyplot.figure(5, figsize=(20, 10))
-    cities = ['TO']
-    for city in cities:
-        percentage[city] = []
-        for i in range(len(differences[city])):
-            if (int(not_filtered[city][i])!=0):
-                percentage[city].append(int(differences[city][i])/ int(not_filtered[city][i]))
-            else:
-                percentage[city].append(0)
-
-        pyplot.plot(x, percentage[city], label=city)
+#    percentage = {}
+#    x = np.linspace(1, 30, 720)
+#    fig = pyplot.figure(5, figsize=(20, 10))
+#    cities = ['TO']
+#    for city in cities:
+#        percentage[city] = []
+#        for i in range(len(differences[city])):
+#            
+#            if (int(not_filtered[city][i])!=0):
+#                percentage[city].append(int(differences[city][i])/ int(not_filtered[city][i]))
+#            else:
+#                percentage[city].append(0)
+#
+#        pyplot.plot(x, percentage[city], label=city)
 
 
 			
