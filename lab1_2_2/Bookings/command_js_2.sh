@@ -19,19 +19,16 @@ echo 'Done'
 
 echo 'Working on Madrid...'
 cat $total | grep Madrid > $file_out_m
-#cut -d" " -f5- temp.dat > $file_out_m
 head $file_out_m
 echo 'Done'
 
 echo 'Working on Torino...'
 cat $total | grep Torino > $file_out_t
-#cut -d" " -f5- temp.dat > $file_out_t
 head $file_out_t
 echo 'Done'
 
 echo 'Working on NYC...'
 cat $total | grep New | cut -d " "  -f 1,4,5 | awk '{print "NYC", $2, $3}' > $file_out_ny
-#cut -d" " -f7- temp.dat > $file_out_ny
 head $file_out_ny
 echo 'Done'
 

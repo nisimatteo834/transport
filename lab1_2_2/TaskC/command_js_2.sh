@@ -8,13 +8,13 @@
 #file_out_p='torino2.dat'
 #file_out_p_nf='torino2_nf.dat'
 
-file_out_m='ma_ng.dat'
-file_out_t='to_ng.dat'
-file_out_ny='ny_ng.dat'
-total="total_ng.dat"
+file_out_m='ma_ow.dat'
+file_out_t='to_ow.dat'
+file_out_ny='ny_ow.dat'
+total="total_ow.dat"
 
 echo 'Working on query...'
-mongo bigdatadb.polito.it/carsharing --ssl --sslAllowInvalidCertificates -u ictts -p 'Ictts16!' --authenticationDatabase carsharing lab1_2_1_2_c_bookings.js > $total
+mongo bigdatadb.polito.it/carsharing --ssl --sslAllowInvalidCertificates -u ictts -p 'Ictts16!' --authenticationDatabase carsharing booking_oneweek.js > $total
 echo 'Done'
 
 echo 'Working on Madrid...'

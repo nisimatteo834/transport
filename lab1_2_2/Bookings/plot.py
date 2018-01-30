@@ -36,7 +36,7 @@ if __name__=='__main__':
         norm1 = values/np.linalg.norm(values)
         
         cumulative[city] = np.cumsum(values)
-        pyplot.plot(base[:-1],cumulative[city],c='blue')
+        pyplot.plot(base[:-1],cumulative[city],c='blue',linewidth=2.0)
         pyplot.xlabel('Minutes')
         
         if city == 'to':
@@ -51,8 +51,8 @@ if __name__=='__main__':
     
     fig = pyplot.figure(i,figsize = (20,10))
     for city in ['to','ny','ma']:
-        pyplot.plot(cumulative[city],label=city)
-        pyplot.legend()
+        pyplot.plot(cumulative[city],label=city,linewidth=3.5)
+        pyplot.legend(prop={'size': 20})
         fig.savefig(folder + '/total_bookig_ng_p.png')
         
 

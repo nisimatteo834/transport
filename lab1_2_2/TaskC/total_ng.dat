@@ -1,0 +1,3 @@
+MongoDB shell version: 3.2.18
+connecting to: bigdatadb.polito.it/carsharing
+2018-01-30T17:58:42.525+0100 W NETWORK  [thread1] SSL peer certificate validation failed: self signed certificate

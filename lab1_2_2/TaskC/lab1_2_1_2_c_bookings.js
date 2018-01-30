@@ -1,16 +1,15 @@
 //System utilization over time: aggregate rentals per hour of the day,
-var startDate = new ISODate("2017-09-01T00:00:00")
+var startDate = new ISODate("2017-09-18T00:00:00")
 var startUnixTime = startDate.getTime() /1000
-var endDate = new ISODate("2017-09-30T23:59:59")
+var endDate = new ISODate("2017-09-24T23:59:59")
 var endUnixTime = endDate.getTime() / 1000
 
 
 var range = 3600
 var result = db.PermanentBookings.aggregate([
     {
-        $match: { // filter here what you want first
+        $match: { 
             $or: [ {city: "Madrid"},{city: "Torino"}, {city: "New York City"}] ,
-            //init_time: { $gte: startUnixTime, $lte: endUnixTime}
             init_date: { $gte: startDate, $lte: endDate}
         	}
     },
@@ -24,14 +23,9 @@ var result = db.PermanentBookings.aggregate([
                 ]
             },
             duration: { $divide: [ { $subtract: ["$final_time", "$init_time"] }, 60 ] },
-            //hourDay: {$hour: "$init_date"},
-            //monthDay: {$concat: [{$substr: [{$month: "$init_date"},0,2]},"-",{$substr: [{$dayOfMonth: "$init_date"},0,2]}]},
-            //dayU: {$floor: {$divide: ["$init_time", range]}},
             init_time: 1,
             final_time:1,
-            //monthDay: {$month: "$init_date"},
             day: {$dayOfMonth: "$init_date"}
-            //init_date:1
         }
         
      },
@@ -45,7 +39,6 @@ var result = db.PermanentBookings.aggregate([
      {
          $sort:{
              "_id.city":1,
-
              "_id.day":1,
              "_id.duration":1
          }
@@ -58,9 +51,6 @@ var result = db.PermanentBookings.aggregate([
 while (result.hasNext())
 {
     a = result.next()
-    //var diffMins = Math.round(((a["_id"]["duration"] % 86400000) % 3600000) / 60000);
-    //print (a["_id"]["city"],a["_id"]["day"],a["_id"]["duration"],a["total"])
-
     print (a["city"],a["day"],a["duration"])
 
 
