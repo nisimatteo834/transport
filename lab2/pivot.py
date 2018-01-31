@@ -39,12 +39,12 @@ if __name__ == '__main__':
                 sub_fascia = set(itertools.combinations(fascia_eta,j))
                 sub_fascia = [list(row) for row in sub_fascia]
                 for fascia in sub_fascia:        
-                    for k in range(1,len(scopo_list)+1):
+                    for k in range(1,2):#len(scopo_list)+1):
                         sub_scopo = set(itertools.combinations(scopo_list,k))
                         sub_scopo = [list(row) for row in sub_scopo]
                         for scopo in sub_scopo:
                             l = l+1
-                            #print (sex,fascia,scopo)
+                            print (sex,fascia,scopo)
                             dg = df.copy()
                             dg = dg.loc[df['SESSO'].isin(sex)]
                             dg = dg.loc[df['FASCIA_ETA'].isin(fascia)]

@@ -62,7 +62,7 @@ if __name__=='__main__':
             
         f.close()
     
-#%% computing percentage
+<#%% computing percentage
     percentage_b = {}
     percentage_p = {}
     total = {}
