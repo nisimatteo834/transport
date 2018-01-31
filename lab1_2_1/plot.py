@@ -43,9 +43,9 @@ if __name__ == '__main__':
         pyplot.xlim(0.5, 30.5)
         pyplot.xlabel('Day of the Month')
         pyplot.ylabel('#Bookings')
-        pyplot.title('Filtered Bookings September 2017 in ' + city)
+        pyplot.title('Filtered Bookings per Hour of the Day in September 2017 in ' + city)
         pyplot.legend()
-        fig.savefig(folder + '/Images/booking1_' + city + '.png')
+        fig.savefig(folder + '/booking1_' + city + '.png')
 
         # %%Bookings not filtered
 
@@ -97,7 +97,7 @@ if __name__ == '__main__':
         pyplot.ylabel('Bookings')
         pyplot.title('Comparison not_Filtered-Filtered in ' + city)
         pyplot.legend()
-        fig.savefig(folder + '/Images/comparison_booking_' + city
+        fig.savefig(folder + '/comparison_booking_' + city
                     + '.png')
 
         fig = pyplot.figure(3, figsize=(20, 10))
@@ -109,7 +109,7 @@ if __name__ == '__main__':
         pyplot.ylabel('Difference')
         pyplot.title('Difference not_Filtered-Filtered in ' + city)
         pyplot.legend()
-        fig.savefig(folder + '/Images/difference_booking_' + city
+        fig.savefig(folder + '/difference_booking_' + city
                     + '.png')
 
         # %% Parkings filtered
@@ -142,9 +142,9 @@ if __name__ == '__main__':
         pyplot.xlim(0.5, 30.5)
         pyplot.xlabel('Day of the Month')
         pyplot.ylabel('#Parkings')
-        pyplot.title('Parkings September 2017 in ' + city)
+        pyplot.title('Parkings per Hour of the Day in September 2017 in ' + city)
         pyplot.legend()
-        fig.savefig(folder + '/Images/parkings_' + city + '.png')
+        fig.savefig(folder + '/parkings_' + city + '.png')
 
         pyplot.show()
 

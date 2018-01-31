@@ -65,7 +65,7 @@ if __name__=='__main__':
                     y[city][4].append(minutes)
                     week4[day].append(minutes)
 #%%
-        fig = pyplot.figure(i,figsize = (10,5))
+        fig = pyplot.figure(i,figsize = (20,10))
         i=i+1
         
         bins = np.arange(np.floor(min(y[city]['tot'])),np.ceil(max(y[city]['tot'])))
@@ -97,7 +97,7 @@ if __name__=='__main__':
         pyplot.close(fig)
             
 #%%
-        fig = pyplot.figure(i,figsize = (10,5))
+        fig = pyplot.figure(i,figsize = (20,10))
         i=i+1
         bins = np.arange(np.floor(min(y[city][4])),np.ceil(max(y[city][4])))
         values,base = np.histogram(y[city][4],bins=bins,density=1)
