@@ -58,6 +58,7 @@ if __name__ == '__main__':
 
     start = strftime("%Y-%m-%d %H:%M:%S", gmtime())
     print ('Starting at',start)
+    print('SESSO_FASCIA_SCOPO,ENOJY,CAR2GO,TOTAL')
     for i  in range(1,2):#,len(sesso)+1):
         df = dc.copy()
         sub_sex = set(itertools.combinations(sesso,i))        
@@ -114,10 +115,10 @@ if __name__ == '__main__':
                                     best_total.append(sex)
                                     best_total.append(fascia)
                                     best_total.append(scopo)
-#                            else:
-#                                print ('NO')
-#                                print (sex,fascia,scopo)
-#                                print (size)
+                            # else:
+                            #     print ('NO')
+                            #     print (sex,fascia,scopo)
+                            #     print (size)
 
                                 
     #%%                        
