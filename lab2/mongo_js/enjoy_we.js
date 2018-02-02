@@ -49,8 +49,8 @@ var result =  db.ictts_enjoy_PermanentBookings.aggregate([
             "coordinates": zones[j]  
             }
         }
-    },   
-    {$or : [ { day : 1 }, { day : 7 } ]}
+    }, 
+    $or : [ { day : 1 }, { day : 7 } ]
 }
 },
 {

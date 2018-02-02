@@ -50,7 +50,7 @@ var result =  db.ictts_PermanentBookings.aggregate([
             }
         }
     },
-    {$or : [ { day : 1 }, { day : 7 } ]}
+    $or : [ { day : 1 }, { day : 7 } ]
 }
 },
 {
