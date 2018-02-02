@@ -131,9 +131,9 @@ if __name__ == '__main__':
         x = np.linspace(1, 30, 720)
         pyplot.plot(x, list(percentage_b[city].values()), label=city)
         pyplot.xlim(0.5, 30.5)
-        pyplot.legend()
+        pyplot.legend(prop={'size':20})
         fig.savefig(folder + '/percentage.png')
-    
+        
     
     
     
