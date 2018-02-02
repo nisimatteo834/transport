@@ -18,12 +18,12 @@ if __name__ == '__main__':
     dc = pd.read_excel(folder+'/spostamenti.xlsx')
     dc = dc.rename(columns =({'PROV_PAR':'COUNT'}))
     
-    #enjoy = pd.read_excel(folder+'/carsharing_week.xlsx','enjoy')
-    #car2go = pd.read_excel(folder+'/carsharing_week.xlsx','car3go')
-    #total = pd.read_excel(folder+'/carsharing_week.xlsx','Total')
-    enjoy = pd.read_excel(folder+'/carsharing_week.xlsx','Sheet3')
-    car2go = pd.read_excel(folder+'/carsharing_week.xlsx','Sheet4')
-    total = pd.read_excel(folder+'/carsharing_week.xlsx','Sheet5')
+    #enjoy = pd.read_excel(folder+'/carsharing_afternoon.xlsx','enjoy')
+    #car2go = pd.read_excel(folder+'/carsharing_afternoon.xlsx','car3go')
+    #total = pd.read_excel(folder+'/carsharing_afternoon.xlsx','Total')
+    enjoy = pd.read_excel(folder+'/carsharing_afternoon.xlsx','Sheet3')
+    car2go = pd.read_excel(folder+'/carsharing_afternoon.xlsx','Sheet4')
+    total = pd.read_excel(folder+'/carsharing_afternoon.xlsx','Sheet5')
 #%%Normalizing
     #summ = enjoy.values.sum()
     norm_enjoy =enjoy/enjoy.values.sum()
