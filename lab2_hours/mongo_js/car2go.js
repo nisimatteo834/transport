@@ -28,7 +28,17 @@ var zones = [[ [ [ [ 7.691863740888242, 45.070489011785504 ], [ 7.69150227748297
      for (j=0; j<zones.length; j++)
      {
 var result =  db.ictts_PermanentBookings.aggregate([
-{$match:{
+
+{$project:{
+	hour: {$hour: "$init_date"},
+	 day: {$dayOfWeek:"$init_date"},
+	 init_loc : 1,
+	 final_loc:1
+	
+	}
+},
+	
+	{$match:{
     init_loc:{$geoWithin:
         {$geometry:{
             "type": "MultiPolygon",
@@ -58,7 +68,7 @@ if(result.hasNext())
     print (i,",",j,",",a["tot"])
 }else {	print (i,",",j,",",0)
  }
-}
+}
 }
         
     

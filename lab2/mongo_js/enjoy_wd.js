@@ -52,7 +52,7 @@ var result =  db.ictts_enjoy_PermanentBookings.aggregate([
         }
     },
     
-    day:{$gte:1, $lte:5}
+    day:{$gte:2, $lte:6}
 }
 },
 {
