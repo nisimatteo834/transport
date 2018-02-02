@@ -29,7 +29,6 @@ var zones = [[ [ [ [ 7.691863740888242, 45.070489011785504 ], [ 7.69150227748297
      {
 var result =  db.ictts_enjoy_PermanentBookings.aggregate([
      { $project: {
-        hour: { $hour: "$init_date" },
         day: { $dayOfWeek: "$init_date" },
         init_loc: 1,
         final_loc: 1
@@ -50,9 +49,8 @@ var result =  db.ictts_enjoy_PermanentBookings.aggregate([
             "coordinates": zones[j]  
             }
         }
-    },
-    
-    day:{$gte:6, $lte:7}
+    },   
+    {$or : [ { day : 1 }, { day : 7 } ]}
 }
 },
 {
