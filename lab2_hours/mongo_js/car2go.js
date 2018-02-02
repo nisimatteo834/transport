@@ -42,9 +42,9 @@ var result =  db.ictts_PermanentBookings.aggregate([
             "coordinates": zones[j]  
             }
         }
-    }
+    },
 	
-	hour:{$gte:5, $lt:10}
+	hour:{$gte:5, $lt:10},
 	day:{$gte:2, $lte:6}
 }
 },

@@ -1,5 +1,0 @@
-MongoDB shell version: 3.2.18
-connecting to: bigdatadb.polito.it/carsharing
-2018-02-02T17:46:57.459+0100 W NETWORK  [thread1] SSL peer certificate validation failed: self signed certificate
-2018-02-02T17:46:57.495+0100 E -        [main] file [car2go.js] doesn't exist
-failed to load: car2go.js
