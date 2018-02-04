@@ -42,8 +42,8 @@ if __name__ == '__main__':
     results['weekends'] = {}
     results['weekends']['car2go'] = {}
     results['weekends']['car2go']['sex'] = ["1","2"]
-    results['weekends']['car2go']['eta'] = ["1","2","3"]
-    results['weekends']['car2go']['scopo'] = ["1","2","3","6","7","8","11"]
+    results['weekends']['car2go']['eta'] = ["1","2"]
+    results['weekends']['car2go']['scopo'] = ["1","2","3","7","8","11"]
     
     results['weekends']['total'] = {}
     results['weekends']['total']['sex'] = ["1","2"]
@@ -52,8 +52,8 @@ if __name__ == '__main__':
      
     results['weekends']['enjoy'] = {}
     results['weekends']['enjoy']['sex'] = ["1","2"]
-    results['weekends']['enjoy']['eta'] = ["2"]
-    results['weekends']['enjoy']['scopo'] = ["1","2","3","8","11"]
+    results['weekends']['enjoy']['eta'] = ["1","2","3"]
+    results['weekends']['enjoy']['scopo'] = ["1","2","3","8","6"]
     
     #for workingdays
     results['weekdays'] = {}
@@ -65,17 +65,52 @@ if __name__ == '__main__':
     results['weekdays']['total'] = {}
     results['weekdays']['total']['sex'] = ["1","2"]
     results['weekdays']['total']['eta'] = ["1","2","3"]
-    results['weekdays']['total']['scopo'] = ["1","2","3","6","7","8","11"]
+    results['weekdays']['total']['scopo'] = ["1","2","3","6","7","8"]
      
     results['weekdays']['enjoy'] = {}
-    results['weekdays']['enjoy']['sex'] = ["1"]
-    results['weekdays']['enjoy']['eta'] = ["2","3"]
-    results['weekdays']['enjoy']['scopo'] = ["1","2","3","6","8","11"]
+    results['weekdays']['enjoy']['sex'] = ["1","2"]
+    results['weekdays']['enjoy']['eta'] = ["2","1"]
+    results['weekdays']['enjoy']['scopo'] = ["1","2","3","8"]
+    
+    #%%morning
+    results['morning'] = {}
+    results['morning']['car2go'] = {}
+    results['morning']['car2go']['sex'] = ["1","2"]
+    results['morning']['car2go']['eta'] = ["1","2","3"]
+    results['morning']['car2go']['scopo'] = ["1","2","3","6","7","11"]
+    
+    results['morning']['total'] = {}
+    results['morning']['total']['sex'] = ["1","2"]
+    results['morning']['total']['eta'] = ["1","2","3"]
+    results['morning']['total']['scopo'] = ["1","2","3","6","7","11"]
+     
+    results['morning']['enjoy'] = {}
+    results['morning']['enjoy']['sex'] = ["1","2"]
+    results['morning']['enjoy']['eta'] = ["2","3"]
+    results['morning']['enjoy']['scopo'] = ["1","2","3","6","11"]
+    
+    #%% afternoon
+    results['afternoon'] = {}
+    results['afternoon']['car2go'] = {}
+    results['afternoon']['car2go']['sex'] = ["1","2"]
+    results['afternoon']['car2go']['eta'] = ["1","2"]
+    results['afternoon']['car2go']['scopo'] = ["1","2","3","8","11"]
+    
+    results['afternoon']['total'] = {}
+    results['afternoon']['total']['sex'] = ["1","2"]
+    results['afternoon']['total']['eta'] = ["1","2"]
+    results['afternoon']['total']['scopo'] = ["1","2","3","8","11"]
+     
+    results['afternoon']['enjoy'] = {}
+    results['afternoon']['enjoy']['sex'] = ["1","2"]
+    results['afternoon']['enjoy']['eta'] = ["1","2","3"]
+    results['afternoon']['enjoy']['scopo'] = ["1","2","3","6","8","11"]
+    
     
 
     
-    for fld in ['alldays','weekends','weekdays']:
-        print ('Working on '+fld)
+    for fld in ['alldays','weekends','weekdays','afternoon','morning']:
+        #print ('Working on '+fld)
         folder = 'C:\\Users\\Matteo\\Desktop\\lab1es2\\transport\lab2'
         #folder = '.'
         #dc = pd.read_csv(folder+'/spostamenti.csv',keep_default_na=False)
@@ -104,11 +139,10 @@ if __name__ == '__main__':
     #%%Data from previous analysis
         
     #for all days
-
         
         
         for index in results[fld].keys():
-            print ('\tWorking on '+index)
+            #print ('\tWorking on '+index)
             dg = dc.copy()
             dg = dg.loc[dg['SESSO'].isin(results[fld][index]['sex'])]
             dg = dg.loc[dg['FASCIA_ETA'].isin(results[fld][index]['eta'])]
@@ -120,7 +154,7 @@ if __name__ == '__main__':
             norm_pvt = pvt/pvt.values.sum()
             norm_pvt.to_excel(writer, sheet_name = 'pvt_'+index)
             distance = np.abs(norm[index+'_'+fld].values - norm_pvt.values)
-            print (fld,distance.sum())
+            print (fld,index,distance.sum())
             #distance.to_excel(folder+'\\all_days\\final.xlsx')
     
             test4  = norm_pvt.values.sum()
