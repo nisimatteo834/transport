@@ -6,9 +6,9 @@ var endUnixTime = endDate.getTime() / 1000
 var time=-2
 var addtime = -2*60*60
 
- for (i = 0; i<zones.length;i++)
+ for (i = 800; i<1000;i++)
  {
-     for (j=0; j<zones.length; j++)
+     for (j=800; j<1000; j++)
      {
 var result =  db.PermanentBookings.aggregate([
              {
@@ -21,21 +21,22 @@ var result =  db.PermanentBookings.aggregate([
 {$project:{
 	hour: {$hour: "$init_date"},
 	 day: {$dayOfWeek:"$init_date"},
-	 init_loc : 1,
-	 final_loc:1
+	 //init_loc : 1,
+	 //final_loc:1
+	 origin_destination:1
 	
 	}
 },
 	
 	{$match:{
-    init_loc:{$geoWithin:
+    "origin_destination.coordinates.0":{$geoWithin:
         {$geometry:{
             "type": "Polygon",
             "coordinates": zones[i]
         }
     }
 },
-    final_loc: {$geoWithin:
+    "origin_destination.coordinates.1": {$geoWithin:
         {$geometry:{
             "type":"Polygon",
             "coordinates": zones[j]  
@@ -53,7 +54,7 @@ if(result.hasNext())
 {
     a = result.next()
     print (i,",",j,",",a["tot"])
-}else {	print (i,",",j,",",0)
- }
+}
+else {	print (i,",",j,",",0)}
 }
 }
