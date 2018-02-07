@@ -10,6 +10,8 @@ if __name__ == '__main__':
     cities = ['MA', 'TO', 'NY']
     differences = {}
     not_filtered = {}
+    matplotlib.rcParams.update({'font.size': 35})
+
 
     for city in cities:
         folder = os.path.dirname(os.path.abspath(__file__))

@@ -6,6 +6,7 @@ Created on Thu Jan  4 16:34:55 2018
 """
 
 
+import matplotlib
 from matplotlib import pyplot
 import numpy as np
 import os
@@ -15,6 +16,8 @@ if __name__=='__main__':
     i = 1
     y = {}
     cumulative = {}
+
+    matplotlib.rcParams.update({'font.size': 32})
 
     
 
@@ -83,7 +86,7 @@ if __name__=='__main__':
             #norm1 = values/np.linalg.norm(values)            
             cumulative[city][j] = np.cumsum(values)            
 
-            pyplot.plot(base[:-1],cumulative[city][j],label="Week"+str(j))
+            pyplot.plot(base[:-1],cumulative[city][j],label="Week"+str(j),linewidth=3.5)
             pyplot.xlabel('Minutes')
             pyplot.legend()
             
@@ -113,9 +116,9 @@ if __name__=='__main__':
             bins = np.arange(np.floor(min(week4[j])),np.ceil(max(week4[j])))
             values,base = np.histogram(week4[j],bins=bins,density=1)
             cum = np.cumsum(values)
-            pyplot.plot(base[:-1],cum,label=week[j-24]+' '+str(j))
+            pyplot.plot(base[:-1],cum,label=week[j-24]+' '+str(j),linewidth=3.5)
         
-        pyplot.legend(prop={'size':15})
+        pyplot.legend(prop={'size':25})
         
         if city == 'to':
             pyplot.title('CDF bookings in Torino in September 2017 divided by day of week')

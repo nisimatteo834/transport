@@ -7,6 +7,7 @@ Created on Wed Jan 31 11:37:27 2018
 
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import matplotlib
 from matplotlib import pyplot
 import json
 import numpy as np
@@ -19,6 +20,7 @@ if __name__ == '__main__':
     not_filtered = {}
 
     fig = pyplot.figure(1, figsize=(20, 10))
+    matplotlib.rcParams.update({'font.size': 35})
 
     for city in cities:
         folder = os.path.dirname(os.path.abspath(__file__))

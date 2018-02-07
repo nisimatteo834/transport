@@ -14,6 +14,7 @@ Created on Wed Jan 31 11:37:27 2018
 
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import matplotlib
 from matplotlib import pyplot
 import json
 import numpy as np
@@ -31,6 +32,8 @@ if __name__ == '__main__':
         # %% Bookings filtered
 
     fig = pyplot.figure(1, figsize=(10,5))
+    matplotlib.rcParams.update({'font.size': 35})
+
 
     for city in cities:
         folder = os.path.dirname(os.path.abspath("__file__"))
@@ -108,10 +111,10 @@ if __name__ == '__main__':
     percentage_b = {}
     percentage_p = {}
     total = {}
-    fig = pyplot.figure(3, figsize=(20,10))
+    fig = pyplot.figure(3, figsize=(30,15))
     pyplot.title('Percentage of Bookings per Hour of the Day in September 2017')
     pyplot.xlabel('Day of the Month')
-    pyplot.ylabel('Utilization Factor')
+    pyplot.ylabel('Percentage')
     for city in cities:
         percentage_b[city] = {}
         percentage_p[city] = {}

@@ -6,7 +6,7 @@ Created on Thu Jan  4 11:07:34 2018
 """
 
 from matplotlib import pyplot
-import json
+import matplotlib
 import numpy as np
 import os
 
@@ -29,6 +29,8 @@ if __name__=='__main__':
             if minutes < 180 and minutes > 2:
                 y[city].append(minutes)
         fig = pyplot.figure(i,figsize = (20,10))
+        matplotlib.rcParams.update({'font.size': 35})
+
         i=i+1
 
         bins = np.arange(np.floor(min(y[city])),np.ceil(max(y[city])))
@@ -50,6 +52,9 @@ if __name__=='__main__':
             fig.savefig(folder + '/'+city+'_booking_ng.png')
     
     fig = pyplot.figure(i,figsize = (20,10))
+    matplotlib.rcParams.update({'font.size': 35})
+    pyplot.title('CDF of bookings in the three cities')
+
     for city in ['to','ny','ma']:
         pyplot.plot(cumulative[city],label=city,linewidth=3.5)
         pyplot.legend(prop={'size': 20})

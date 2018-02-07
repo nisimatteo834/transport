@@ -4,7 +4,7 @@ Created on Thu Feb  1 23:18:07 2018
 
 @author: Matteo
 """
-
+import matplotlib
 from matplotlib import pyplot
 import json
 import numpy as np
@@ -20,11 +20,12 @@ if __name__=='__main__':
     plot['NY'] = 'g*'
     
     fig = pyplot.figure(1,figsize = (20,10))
+    matplotlib.rcParams.update({'font.size': 35})
     x = np.linspace(0,23,24)
     pyplot.xticks(x)
     pyplot.xlabel('Hour of the day')
     pyplot.ylabel('#Bookings')
-    pyplot.title('Bookings per Hours in September 2017')    
+    pyplot.title('Bookings per Hour in September 2017 per each city')    
 
 
     for city in cities:
@@ -51,7 +52,7 @@ if __name__=='__main__':
                                
         
         f.close()
-        pyplot.plot(x,list(bookings.values()),plot[city],label=city)
+        pyplot.plot(x,list(bookings.values()),label=city,linewidth=3.5)
         pyplot.xticks(x)
         pyplot.xlabel('Hour of the day')
         pyplot.ylabel('#Bookings')

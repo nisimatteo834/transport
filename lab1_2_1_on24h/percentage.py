@@ -4,10 +4,8 @@ Created on Wed Jan 31 13:31:14 2018
 
 @author: Matteo
 """
-
+import matplotlib
 from matplotlib import pyplot
-import json
-import numpy as np
 import os
 
 
@@ -62,11 +60,13 @@ if __name__=='__main__':
             
         f.close()
     
-<#%% computing percentage
+#%% computing percentage
     percentage_b = {}
     percentage_p = {}
     total = {}
     fig = pyplot.figure(3, figsize=(20,10))
+    matplotlib.rcParams.update({'font.size': 35})
+
     pyplot.title('Percentage of Bookings per Hour of the Day in September 2017')
     pyplot.xlabel('Day of the Month')
     pyplot.ylabel('Utilization Factor')
@@ -87,7 +87,7 @@ if __name__=='__main__':
             except ZeroDivisionError as zerodiv:
                 percentage_b[city][hour] = 0
         x = np.linspace(0, 23, 24)
-        pyplot.plot(x, list(percentage_b[city].values()), label=city)
+        pyplot.plot(x, list(percentage_b[city].values()), label=city,linewidth=3.5)
         pyplot.legend()
         fig.savefig(folder + '/percentage.png')
     
