@@ -31,7 +31,7 @@ if __name__ == '__main__':
     print(standard_deviation)
     print(percentile)
     """
-    """
+
     #Madrid
     fileName = "Madrid_Parking.txt"
     city = "Madrid"
@@ -51,8 +51,8 @@ if __name__ == '__main__':
     print(median)
     print(standard_deviation)
     print(percentile)
-    """
 
+    """
     # New York City
     fileName = "NewYork_Parking.txt"
     city = "New York City"
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     print(median)
     print(standard_deviation)
     print(percentile)
-
+    """
     fig1 = plt.figure(1)
     plt.figure(figsize=(10, 5))
     plt.title(city + " Parking Statistics")

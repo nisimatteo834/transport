@@ -120,9 +120,9 @@ if __name__ == '__main__':
                                 
     #%%                        
     end = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-    print ('Best Total',best_total)
-    print ('Best Car2Go',best_car2go)
-    print ('Best Enjoy',best_enjoy)
+    print ('Best Total',best_total,sum_total)
+    print ('Best Car2Go',best_car2go,sum_car2go)
+    print ('Best Enjoy',best_enjoy,sum_enjoy)
     print (start,end,l)
 
                         

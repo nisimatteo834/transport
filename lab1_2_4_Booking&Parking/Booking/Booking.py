@@ -30,7 +30,7 @@ if __name__ == '__main__':
     print(median)
     print(standard_deviation)
     print(percentile)
-"""
+    """
     """
     #Madrid
     fileName = "Madrid_Booking.txt"
@@ -51,8 +51,8 @@ if __name__ == '__main__':
     print(median)
     print(standard_deviation)
     print(percentile)
-"""
 
+    """
     # New York City
     fileName = "NewYork_Booking.txt"
     city = "New York City"

@@ -6,7 +6,7 @@ import pylab
 
 if __name__ == '__main__':
 
-    fileName = "Torino_Pt_Duration.txt"
+    fileName = "Torino_walking_Duration.txt"
     city = "Torino"
     file = open(fileName, "r")
     data = file.readlines()
@@ -20,11 +20,11 @@ if __name__ == '__main__':
         pt_duration.append(float(pt))
     print(pt_duration)
 
-    bins = np.arange(0, 100, 5)
+    bins = np.arange(0, 140, 5)
     fig1 = plt.figure(1)
     plt.figure(figsize = (10,5))
-    plt.title(city +" Rentals given the Duration of Public Transport In September 2017")
-    plt.xlabel("Public Trasport Duration[min]")
+    plt.title(city +" Rentals given the Duration of Walking In September 2017")
+    plt.xlabel("Walking Duration[min]")
     plt.ylabel("Number of Bookings")
     plt.grid(True)
     plt.hist(pt_duration, bins)

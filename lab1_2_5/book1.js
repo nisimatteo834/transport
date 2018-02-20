@@ -34,22 +34,17 @@ var result = db.PermanentParkings.aggregate([
              duration: {$gt: 2} // must last than 3h and greater then 2m
          }
      },
-{
-    $group:
-    {
-        _id:{monthDay : "$monthDay", day:"$day", hourDay: "$hourDay", city:"$city",dayU:"$dayU",duration:"$duration",lat:"$lat",lon:"$lon"}
-    }
-},
+
 {
    $sort:{
-       "_id.day":1,
-       "_id.hourDay":1
+       "day":1,
+       "hourDay":1
         }
     }
- ])     
+ ])
 while(result.hasNext()) {
     a = result.next()
     //print (a["_id"]["city"],a["_id"]['monthDay'],a["_id"]['day'],a["_id"]["hourDay"], a["_id"]["dayU"],a["_id"]["duration"],a["_id"]["lat"],a["_id"]["lon"])
-    print (a["_id"]['day'],a["_id"]["hourDay"],a["_id"]["lat"],a["_id"]["lon"])
+    print (a['day'],a["hourDay"],a["lat"],a["lon"])
 
 }
