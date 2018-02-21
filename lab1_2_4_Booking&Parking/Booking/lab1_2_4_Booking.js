@@ -1,8 +1,5 @@
 var startDate = new ISODate("2017-09-01T00:00:00")
-var startUnixTime = startDate.getTime() /1000
 var endDate = new ISODate("2017-09-30T23:59:59")
-var endUnixTime = endDate.getTime() / 1000
-var range = 3600
 var result = db.PermanentBookings.aggregate([
     {
         $match: { // filter here what you want first
@@ -13,8 +10,6 @@ var result = db.PermanentBookings.aggregate([
         {
         $project: { // extract position, time, duration
             _id: 0,
-            city: 1,
-
             moved: { $ne: [
 
                 {$arrayElemAt: [ "$origin_destination.coordinates", 0]},
@@ -26,19 +21,13 @@ var result = db.PermanentBookings.aggregate([
             },
             duration: { $divide: [ { $subtract: ["$final_time", "$init_time"] }, 60 ] },
             hourDay: {$hour: "$init_date"},
-            monthDay: {$concat: [{$substr: [{$month: "$init_date"},0,2]},"-",{$substr: [{$dayOfMonth: "$init_date"},0,2]}]},
-            dayU: {$floor: {$divide: ["$init_time", range]}},
-            init_time: 1,
-            monthDay: {$month: "$init_date"},
-            day: {$dayOfMonth: "$init_date"},
-            init_date:1
+            day: {$dayOfMonth: "$init_date"}
         }
      },
 
         {
          $match: {
              moved: true, // must have moved
-
              duration: {$lte: 180, $gt: 2} // must last than 3h and greater then 2m
          }
      },
